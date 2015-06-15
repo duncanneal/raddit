@@ -1,16 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>RaddIT</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= csrf_meta_tags %>
+  <title>RaddIT</title>
 </head>
+
 <body>
   <header class="navbar navbar-default" role="navigation">
     <div class="navbar-inner">
       <div class="container">
-        <div id="logo" class="navbar-brand"><%= link_to "RaddIT", root_path %></div>
+
+        <div id="logo" class="navbar-brand">
+        <a class="navbar-brand">
+            <img src="/rabit.jpg/" alt="rabbit pic" class="img-rounded">
+        </a>
         <nav class="collapse navbar-collapse navbar-ex1-collapse">
           <% if user_signed_in? -%>
             <ul class="nav navbar-nav navbar-right">
@@ -39,5 +46,11 @@
       </div>
     </div>
   </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; The Iron Yard - Kelly Bristol and Duncan Neal Q2 2015</p>
+    </div>
+  </footer>
 </body>
 </html>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+  resources :comments
 
   devise_for :users
   resources :links do
@@ -7,10 +7,10 @@ Rails.application.routes.draw do
       put "like",    to: "links#upvote"
       put "dislike", to: "links#downvote"
     end
-    resources :comments
+  resources :comments
   end
   root "links#index"
-
+end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -59,4 +59,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+

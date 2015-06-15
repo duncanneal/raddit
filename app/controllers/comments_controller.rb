@@ -2,6 +2,10 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
 
+  def index
+    @comment = Comment.all
+  end  
+
   def create
     @link = Link.find(params[:link_id])
     @comment = @link.comments.new(comment_params)
@@ -15,7 +19,6 @@ class CommentsController < ApplicationController
       end
     end
   end
-
   def destroy
     @comment.destroy
     respond_to do |format|
