@@ -1,10 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
-
-  def index
-    @comment = Comment.all
-  end  
+  before_action :set_comment, only: [:destroy]
+  before_filter :authenticate_user!  
 
   def create
     @link = Link.find(params[:link_id])
@@ -19,6 +15,7 @@ class CommentsController < ApplicationController
       end
     end
   end
+
   def destroy
     @comment.destroy
     respond_to do |format|
@@ -29,7 +26,7 @@ class CommentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
-      @comment = Comment.find(params[:id])
+      @comment = current_user.comments.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
