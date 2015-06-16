@@ -8,13 +8,13 @@
   <%= csrf_meta_tags %>
   <title>RaddIT</title>
 </head>
-
 <body>
   <header class="navbar navbar-default" role="navigation">
     <div class="navbar-inner">
       <div class="container">
-
         <div id="logo" class="navbar-brand">
+
+        <%= link_to "Kitties & Rebbits", root_path %></div>
           <nav class="collapse navbar-collapse navbar-ex1-collapse">
             <% if user_signed_in? -%>
             <ul class="nav navbar-nav navbar-right">
@@ -24,7 +24,7 @@
             </ul>
             <% else -%>
             <ul class="nav navbar-nav pull-right">
-              <li><%= link_to 'Sign up', new_user_registration_path %></li>
+              <li><%= link_to 'Want to join?', new_user_registration_path %></li>
               <li><%= link_to 'Sign in', new_user_session_path %></li>
             </ul>
             <% end -%>
@@ -47,7 +47,7 @@
 
     <footer>
       <div class="container">
-        <p>&copy; The Iron Yard - Kelly Bristol and Duncan Neal Q2 2015</p>
+        <p>&copy; An Iron Yard Production</p>
       </div>
     </footer>
   </body>

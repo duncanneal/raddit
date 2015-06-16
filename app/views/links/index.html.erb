@@ -3,7 +3,7 @@
   <h2>
     <%= link_to link.title, link %><br>
     <small class="author">Submitted <%= time_ago_in_words(link.created_at) %> by 
-    <%= link.user.try (:name) %></small>
+    <%= link.user.try(:name) %></small>
   </h2>
 
   <div class="btn-group">
@@ -21,3 +21,4 @@
     </div>
   </div>
   <% end %>
+  <%= paginate @links %>

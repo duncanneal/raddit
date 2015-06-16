@@ -4,7 +4,7 @@ class LinksController < ApplicationController
   before_action :authorized_user, only: [:edit, :update, :destroy]
 
   def index
-    @links = Link.all
+    @links = Link.all.page(params[:page]).per(5)
   end
 
   def show
